@@ -17,6 +17,7 @@ public class Exam07 {
 		if(b > a)
 			max = b;
 			return max;
+		//return a > b ? a : b;
 	}
 	
 	public static String run4(String a, String b) {
@@ -36,9 +37,9 @@ public class Exam07 {
 	}
 
 	public static String run6(int num) {
-		return  Integer.toString(num);
+		return Integer.toString(num);	//num + "";도 가능하다.
 	}
-	
+
 	public static double run7(double a) {
 		return Math.pow(a, 2);
 	}
@@ -55,7 +56,16 @@ public class Exam07 {
 		}
 		return sum;
 	}
-	
+
+	public static void print() {
+		System.out.println(run3(50,100));
+		System.out.println(run4("나는", "천재"));
+		System.out.println("5번답은  : " + run5(90));
+		System.out.println(run6(4));
+		System.out.println(run7(10));
+		System.out.println("8번 세 수의 평균은" + run8(10, 15, 20));
+		System.out.println("매개변수까지 홀수의 합은 " + run9(10));
+	}
 	public static void main(String[] args) {
 //		Scanner sc = new Scanner(System.in);
 //		System.out.println("값을 2개 입력하세욧");
@@ -70,13 +80,4 @@ public class Exam07 {
 		
 	}
 
-	private static void print() {
-		System.out.println(run3(50,100));
-		System.out.println(run4("나는", "천재"));
-		System.out.println("5번답은  : " + run5(85));
-		System.out.println(run6(4));
-		System.out.println(run7(10));
-		System.out.println("8번 세 수의 평균은" + run8(10, 15, 20));
-		System.out.println("매개변수까지 홀수의 합은 " + run9(5));
-	}
 }
