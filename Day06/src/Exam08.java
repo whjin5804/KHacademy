@@ -118,7 +118,6 @@ public class Exam08 {
 		int[] result = run9(b);
 		
 		for(int e : result) {
-			if(e < 5)
 			System.out.print(e + " ");
 		}
 		
