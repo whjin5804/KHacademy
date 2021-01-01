@@ -1,6 +1,7 @@
 package Class_final;
 
 public class Worker {
+<<<<<<< HEAD
 
 	private int korScore;
 	private int engScore;
@@ -17,20 +18,23 @@ public class Worker {
 		this.engScore = engScore;
 		this.mathScore = mathScore;
 	}
+=======
+	WorkInfo workInfo = new WorkInfo();
+>>>>>>> e7bbef3c62a11ac89340c52c2d10bf488f94eb89
 	
-	public int sumScore() {
-		return korScore + engScore + mathScore;
+	public void setWorkInfo(String companyNmae, String workPlace, int price) {
+		workInfo.setWorkInfo(companyNmae, workPlace, price);
 	}
 	
-	public double avgScore() {
-		return sumScore() / (double)3;
+	public void displayWoker() {
+		workInfo.displayWoker();
 	}
 	
-	public void displayStudentInfo() {
-		System.out.println("국어점수 : " + korScore);
-		System.out.println("영어점수 : " + engScore);
-		System.out.println("수학점수 : " + mathScore);
-		System.out.println("총점은 : " + sumScore());
-		System.out.println("평균은 : " + avgScore());
+	
+	PersonInfo personInfo = new PersonInfo();
+	public void setInfo(String name, String address, int age){
+		personInfo.setInfo(name, address, age);
 	}
+	
+	
 }

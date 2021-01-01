@@ -1,6 +1,6 @@
 package Class_final;
 
-public class Student {
+public class WorkInfo {
 
 	private String companyName;
 	private String workPlace;
@@ -19,10 +19,12 @@ public class Student {
 	}
 	
 	public void displayWoker() {
-		System.out.println("ȸ��� : " + companyName);
-		System.out.println("�μ� : " + workPlace);
-		System.out.println("�޿� : " + price);
+		System.out.println("회사이름은 : " + companyName);
+		System.out.println("회사명은 : " + workPlace);
+		System.out.println("가격은 : " + price);
 	}
+	
+	
 	
 	
 }
