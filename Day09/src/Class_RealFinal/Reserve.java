@@ -1,15 +1,63 @@
 package Class_RealFinal;
 
+import java.util.Scanner;
+
 public class Reserve {
 
+	public Scanner scanner = new Scanner(System.in);
 	private String[] seatS = new String[10];
 	private String[] seatA = new String[10];
 	private String[] seatB = new String[10];
 	
+	public void reserAsk() {
+		System.out.print("ÁÂ¼®±¸ºĞ S<1>, A<2>, B<3>>>");
+		int seatClass = scanner.nextInt();
+		scanner.nextLine();
+		switch (seatClass) {
+		case 1:
+			System.out.print("S>> ");
+			for (int i = 0; i < seatS.length; i++) {
+				seatS[i] = "¤Ñ"; 
+			}
+			for (int i = 0; i < seatS.length; i++) {
+				System.out.print(seatS[i]);
+			}
+			break;
+			
+		case 2:
+			System.out.print("A>> ");
+			for (int i = 0; i < seatA.length; i++) {
+				seatA[i] = "¤Ñ"; 
+			}
+			for (int i = 0; i < seatA.length; i++) {
+				System.out.print(seatA[i]);
+			}
+			break;
+		case 3:
+			System.out.print("B>> ");
+			for (int i = 0; i < seatB.length; i++) {
+				seatB[i] = "¤Ñ"; 
+			}
+			for (int i = 0; i < seatB.length; i++) {
+				System.out.print(seatB[i]);
+			}
+			break;
+		default:
+			break;
+		}
+	}
+	
 	public void reserve() {
-		System.out.print("ì¢Œì„êµ¬ë¶„ S<1>, A<2>, B<3>>>");
+		reserAsk();
+		System.out.println();
+		System.out.print("ÀÌ¸§>>");
+		String name = scanner.nextLine();
+		System.out.print("¹øÈ£>>");
+		int number = scanner.nextInt();
+		seatS[number] = name;	//ÀÌ¸§ÀÌ¶û ¹øÈ£ Á¶È¸·Î ³Ñ±â±â
 	}
 
+	
 	public void inquiry() {
 		
 	}
@@ -18,15 +66,15 @@ public class Reserve {
 		
 	}
 	
-	public void end() {
-		
+	public int end() {
+		return 0;
 	}
 	
 	public void print() {
-		System.out.print("ì˜ˆì•½<1>, ");
-		System.out.print("ì¡°íšŒ<2>, ");
-		System.out.print("ì·¨ì†Œ<3>, ");
-		System.out.print("ëë‚´ê¸°<4>>> ");
+		System.out.print("¿¹¾à<1>, ");
+		System.out.print("Á¶È¸<2>, ");
+		System.out.print("Ãë¼Ò<3>, ");
+		System.out.print("³¡³»±â<4>>> ");
 	}
 	
 	

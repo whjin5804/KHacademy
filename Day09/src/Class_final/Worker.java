@@ -1,7 +1,6 @@
 package Class_final;
 
 public class Worker {
-<<<<<<< HEAD
 
 	private int korScore;
 	private int engScore;
@@ -18,9 +17,7 @@ public class Worker {
 		this.engScore = engScore;
 		this.mathScore = mathScore;
 	}
-=======
 	WorkInfo workInfo = new WorkInfo();
->>>>>>> e7bbef3c62a11ac89340c52c2d10bf488f94eb89
 	
 	public void setWorkInfo(String companyNmae, String workPlace, int price) {
 		workInfo.setWorkInfo(companyNmae, workPlace, price);

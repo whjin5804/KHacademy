@@ -6,7 +6,7 @@ public class WorkInfo {
 	private String workPlace;
 	private int price;
 	
-	public Student() {
+	public WorkInfo() {
 		companyName = "";
 		workPlace = "";
 		price = 0;
@@ -19,9 +19,9 @@ public class WorkInfo {
 	}
 	
 	public void displayWoker() {
-		System.out.println("회사이름은 : " + companyName);
-		System.out.println("회사명은 : " + workPlace);
-		System.out.println("가격은 : " + price);
+		System.out.println("�쉶�궗�씠由꾩� : " + companyName);
+		System.out.println("�쉶�궗紐낆� : " + workPlace);
+		System.out.println("媛�寃⑹� : " + price);
 	}
 	
 	
