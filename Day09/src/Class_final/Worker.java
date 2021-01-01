@@ -5,6 +5,12 @@ public class Worker {
 	private int korScore;
 	private int engScore;
 	private int mathScore;
+	
+	public Worker() {
+		korScore = 0;
+		engScore = 0;
+		mathScore = 0;
+	}
 
 	public void setSongjuk(int korScore, int engScore, int mathScore) {
 		this.korScore = korScore;

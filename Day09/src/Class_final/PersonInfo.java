@@ -5,6 +5,12 @@ public class PersonInfo {
 	private String address;
 	private int age;
 	
+	public PersonInfo() {
+		name = "";
+		address = "";
+		age = 0;
+	}
+	
 	public void setInfo(String name, String address, int age) {
 		this.name = name;
 		this.address = address;
