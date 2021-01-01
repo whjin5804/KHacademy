@@ -9,15 +9,13 @@ public class PersonInfo {
 		this.name = name;
 		this.address = address;
 		this.age = age;
+		printInfo();
 	}
 	
 	public void printInfo() {
-		System.out.println("ÀÌ¸§ : " + name);
-		System.out.println("³ªÀÌ : " + age);
-		System.out.println("ÁÖ¼Ò : " + address);
+		System.out.println("ì´ë¦„ì€ : " + name);
+		System.out.println("ë‚˜ì´ëŠ” : " + age);
+		System.out.println("ì£¼ì†ŒëŠ” : " + address);
 	}
-	
-	
-	
 	
 }

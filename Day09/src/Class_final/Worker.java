@@ -1,30 +1,21 @@
 package Class_final;
 
 public class Worker {
-
-	private int korScore;
-	private int engScore;
-	private int mathScore;
-
-	public void setSongjuk(int korScore, int engScore, int mathScore) {
-		this.korScore = korScore;
-		this.engScore = engScore;
-		this.mathScore = mathScore;
+	WorkInfo workInfo = new WorkInfo();
+	
+	public void setWorkInfo(String companyNmae, String workPlace, int price) {
+		workInfo.setWorkInfo(companyNmae, workPlace, price);
 	}
 	
-	public int sumScore() {
-		return korScore + engScore + mathScore;
+	public void displayWoker() {
+		workInfo.displayWoker();
 	}
 	
-	public double avgScore() {
-		return sumScore() / (double)3;
+	
+	PersonInfo personInfo = new PersonInfo();
+	public void setInfo(String name, String address, int age){
+		personInfo.setInfo(name, address, age);
 	}
 	
-	public void displayStudentInfo() {
-		System.out.println("국어점수 : " + korScore);
-		System.out.println("영어점수 : " + engScore);
-		System.out.println("수학점수 : " + mathScore);
-		System.out.println("총점은 : " + sumScore());
-		System.out.println("평균은 : " + avgScore());
-	}
+	
 }
