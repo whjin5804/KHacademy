@@ -5,21 +5,30 @@ import java.util.Scanner;
 public class Reserve {
 
 	public Scanner scanner = new Scanner(System.in);
-	private String[] seatS = new String[10];
-	private String[] seatA = new String[10];
-	private String[] seatB = new String[10];
+	public String[] seatS = new String[10];
+	public String[] seatA = new String[10];
+	public String[] seatB = new String[10];
+	
+	public void setSeatS(String[] seatS) {
+		this.seatS = seatS;
+	}
+	
+	public String[] getSeatS() {
+		return seatS;
+	}
 	
 	public void reserAsk() {
-		System.out.print("ÁÂ¼®±¸ºĞ S<1>, A<2>, B<3>>>");
+		System.out.print("ì¢Œì„êµ¬ë¶„ S<1>, A<2>, B<3>>>");
 		int seatClass = scanner.nextInt();
 		scanner.nextLine();
 		switch (seatClass) {
 		case 1:
 			System.out.print("S>> ");
 			for (int i = 0; i < seatS.length; i++) {
-				seatS[i] = "¤Ñ"; 
+				seatS[i] = "ã…¡ã…¡"; 
 			}
 			for (int i = 0; i < seatS.length; i++) {
+				setSeatS(seatS);
 				System.out.print(seatS[i]);
 			}
 			break;
@@ -27,7 +36,7 @@ public class Reserve {
 		case 2:
 			System.out.print("A>> ");
 			for (int i = 0; i < seatA.length; i++) {
-				seatA[i] = "¤Ñ"; 
+				seatA[i] = "ã…¡ã…¡"; 
 			}
 			for (int i = 0; i < seatA.length; i++) {
 				System.out.print(seatA[i]);
@@ -36,7 +45,7 @@ public class Reserve {
 		case 3:
 			System.out.print("B>> ");
 			for (int i = 0; i < seatB.length; i++) {
-				seatB[i] = "¤Ñ"; 
+				seatB[i] = "ã…¡ã…¡"; 
 			}
 			for (int i = 0; i < seatB.length; i++) {
 				System.out.print(seatB[i]);
@@ -50,13 +59,18 @@ public class Reserve {
 	public void reserve() {
 		reserAsk();
 		System.out.println();
-		System.out.print("ÀÌ¸§>>");
+		System.out.print("ì´ë¦„>>");
 		String name = scanner.nextLine();
-		System.out.print("¹øÈ£>>");
+		System.out.print("ë²ˆí˜¸>>");
 		int number = scanner.nextInt();
-		seatS[number] = name;	//ÀÌ¸§ÀÌ¶û ¹øÈ£ Á¶È¸·Î ³Ñ±â±â
+		seatS[number] = name;	//ï¿½Ì¸ï¿½ï¿½Ì¶ï¿½ ï¿½ï¿½È£ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½
 	}
-
+	
+	public void getSeat() {
+		for (int j = 0; j < seatA.length; j++) {
+			seatS[j] = "ã…¡";
+		}
+	}
 	
 	public void inquiry() {
 		
@@ -71,10 +85,10 @@ public class Reserve {
 	}
 	
 	public void print() {
-		System.out.print("¿¹¾à<1>, ");
-		System.out.print("Á¶È¸<2>, ");
-		System.out.print("Ãë¼Ò<3>, ");
-		System.out.print("³¡³»±â<4>>> ");
+		System.out.print("ì˜ˆì•½<1>, ");
+		System.out.print("ì¡°íšŒ<2>, ");
+		System.out.print("ì·¨ì†Œ<3>, ");
+		System.out.print("ëë‚´ê¸°<4>>> ");
 	}
 	
 	

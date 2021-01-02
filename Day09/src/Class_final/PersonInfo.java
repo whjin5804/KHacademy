@@ -20,8 +20,8 @@ public class PersonInfo {
 	
 	public void printInfo() {
 		System.out.println("이름은 : " + name);
-		System.out.println("나이는 : " + age);
 		System.out.println("주소는 : " + address);
+		System.out.println("나이는 : " + age);
 	}
 	
 }

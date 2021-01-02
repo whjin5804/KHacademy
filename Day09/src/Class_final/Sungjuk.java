@@ -10,6 +10,7 @@ public class Sungjuk {
 		this.korScore = korScore;
 		this.engScore = engScore;
 		this.mathScore = mathScore;
+		displayStudentInfo();
 	}
 	
 	public int sumScore() {
