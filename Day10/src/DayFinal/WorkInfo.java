@@ -1,6 +1,7 @@
 package DayFinal;
 
 public class WorkInfo {
+
 	private String company;
 	private String department;
 	private int salary;
@@ -11,4 +12,10 @@ public class WorkInfo {
 		this.salary = salary;
 	}
 	
+	public void displayInfo(){
+		System.out.println("회사명 : " + company);
+		System.out.println("부서 : " + department);
+		System.out.println("급여 : " + salary);
+	}
+
 }

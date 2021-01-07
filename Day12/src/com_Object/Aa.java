@@ -1,3 +1,4 @@
+package com_Object;
 class Bb{
 	
 }

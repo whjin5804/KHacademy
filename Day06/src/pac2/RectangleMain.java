@@ -13,7 +13,7 @@ public class RectangleMain {
 		r.show();
 		System.out.println(r.square());
 		if(r.equals(s))
-			System.out.println("두사각형은 같습니다.");
+			System.out.println("두사각형의 넓이가 같습니다.");
 		
 	}
 

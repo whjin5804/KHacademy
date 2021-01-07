@@ -20,6 +20,7 @@ public class TestPhone {
 		/*할아버지가 모바일폰달라했는데 스마트폰도 모바일폰이니까 스마트폰을 받음*/
 		mp1.sendMsg();
 		mp1.call();
+		mp1.openKakao();
 //		mp1.playApp();
 		/*할아버지는 스마트폰받았지만 스마트폰기능을 쓸줄모른다.*/
 		
