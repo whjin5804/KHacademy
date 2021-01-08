@@ -5,6 +5,13 @@ public class Cake {
 	public void eat() {
 		System.out.println("케이크를 먹는다");
 	}
+	
+	public void aaa() {
+		
+	}
+	
+	
+	
 }
 
 class cheeseCake extends Cake{
@@ -13,6 +20,10 @@ class cheeseCake extends Cake{
 	@Override
 	public void eat() {
 		System.out.println("치즈케이크를 먹는다.");
+	}
+	
+	public void bbb() {
+		
 	}
 }
 
@@ -24,3 +35,4 @@ class StrawberryCheeseCake extends cheeseCake{
 		System.out.println("딸기치즈케이크를 먹는다.");
 	}
 }
+

@@ -6,28 +6,36 @@ public class Song {
 	private String artist;
 	private String album;
 	private int year;
-	private String composer1;
-	private String composer2;
-	private String composer3;
+	private String[] composer;
 	
+	//모든 필드를 초기화하는 메서드
+	//정보를 출력하는 메서드
 	public Song() {
 		title = "dynamite";
 		artist = "bts";
 		album = "?";
 		year = 2020;
-		composer1 = "??";
-		composer2 = "??";
-		composer3 = "??";
+		composer = null;
 	}
 	
-	public void print() {
-		System.out.println(title);
-		System.out.println(artist);
-		System.out.println(album);
-		System.out.println(year);
-		System.out.println(composer1);
-		System.out.println(composer2);
-		System.out.println(composer3);
+	public void initSongInfo(String title, String artist, String album, String[] composer, int year) {
+		this.title = title;
+		this.artist = artist;
+		this.album = album;
+		this.composer = composer;
+		this.year = year;
+	}
+	
+	public void printSongInfo() {
+		System.out.println("제목은 : " + title);
+		System.out.println("가수는 : " + artist);
+		System.out.println("앨범은 : " + album);
+		System.out.println("발행년도는 " + year);
+		for (int i = 0; i < composer.length; i++) {
+			System.out.print(composer[i] + " ");
+		}
+		
+		
 	}
 	
 }
