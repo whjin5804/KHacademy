@@ -6,7 +6,7 @@ public interface Printer {
 	void printColor();
 
 	//흑백출력기능
-	public void print();
+	public void print(); //추상메소드
 }
 
 interface Copiable {
@@ -15,7 +15,7 @@ interface Copiable {
 	void copy2();
 }
 
-class SamSungPrinter implements Printer, Copiable{
+class SamSungPrinter extends Object implements Printer, Copiable{
 	
 	//흑백
 	public void print() {
