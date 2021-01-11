@@ -10,9 +10,9 @@ public class ConversationBook extends Book{
 	
 	public void print() {
 		super.print();
-		System.out.println("책 제목>>" + super.getBookTitleInfo());
-		System.out.println("저자>>" + super.getMaker());
-		System.out.println("언어>>" + languageInfo);
+		System.out.println("Book title>>" + super.getBookTitleInfo());
+		System.out.println("Maker>>" + super.getMaker());
+		System.out.println("Language Info>>" + languageInfo);
 		System.out.println("ISBN>>" + super.getIsbnNum());
 	}
 	

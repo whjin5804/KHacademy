@@ -9,54 +9,77 @@ public class ProductInfo {
 	private static String price;
 	
 	public static void ProductInfo() {	//add situation
-		System.out.print("»óÇ° ¼³¸í : ");
+		System.out.print("Product Explain : ");
 		explainProd = sc.nextLine();
-		System.out.print("»ý»êÀÚ : ");
+		System.out.print("Productor : ");
 		productor = sc.nextLine();
-		System.out.print("°¡°Ý : ");
+		System.out.print("Price : ");
 		price = sc.nextLine();
 	}
 	
 	public static void main(String[] args) {
 		Product[] product = new Product[10];
+		int cnt = 0;
+		int choice = 0;
 		ConversationBook c1 = null;
 		CompactDisc c2;
-		System.out.print("Add<1>, Search<2>, End<3>>>");
-		int choice = sc.nextInt();
-		System.out.print("»óÇ° Á¾·ù Book<1>, MusicCD<2>, converBook<3>>>");
-		int kind = sc.nextInt();	//switch·Î °¡¸£±â
-		sc.nextLine();
+		String bookName = "";
+		String maker = "";
+		String language = "";
+		String isbn = "";
+		String albumTitle = "";
+		String singerNameInfo = "";
 		
-			switch (kind) {			//Add
-			case 1:
-				ProductInfo();
-				System.out.print("Ã¥ Á¦¸ñ : ");
-				String bookName = sc.nextLine();
-				System.out.print("ÀúÀÚ : ");
-				String maker = sc.nextLine();
-				System.out.print("¾ð¾î : ");
-				String language = sc.nextLine();
-				System.out.print("ISBN : ");
-				String isbn = sc.nextLine();
-				c1 = new ConversationBook(explainProd, productor, price, isbn, maker, bookName, language);
-				System.out.println();
+		
+		do {
+			System.out.print("Add<1>, Search<2>, End<3>>>");
+			choice = sc.nextInt();
+			sc.nextLine();
+			switch (choice) {
+			case 1 :
+				System.out.print("Product kind Book<1>, MusicCD<2>, converBook<3>>>");
+				int kind = sc.nextInt();	//switchï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				sc.nextLine();
+				switch (kind) {			//Add
+				case 1:
+					ProductInfo();
+					System.out.print("Book name : ");
+					bookName = sc.nextLine();
+					System.out.print("Maker : ");
+					maker = sc.nextLine();
+					System.out.print("language : ");
+					language = sc.nextLine();
+					System.out.print("ISBN : ");
+					isbn = sc.nextLine();
+					c1 = new ConversationBook(explainProd, productor, price, isbn, maker, bookName, language);
+					System.out.println();
+					break;
+				case 2:
+					ProductInfo();
+					System.out.print("Album title : ");
+					albumTitle = sc.nextLine();
+					System.out.print("Singer name : ");
+					singerNameInfo = sc.nextLine();
+					c2 = new CompactDisc(explainProd, productor, price, albumTitle, singerNameInfo);
+					System.out.println();
+					break;
+				default:
+					break;
+				}
 				break;
 			case 2:
-				ProductInfo();
-				System.out.print("¾Ù¹ü Á¦¸ñ : ");
-				String albumTitle = sc.nextLine();
-				System.out.print("°¡¼ö : ");
-				String singerNameInfo = sc.nextLine();
-				c2 = new CompactDisc(explainProd, productor, price, albumTitle, singerNameInfo);
-				System.out.println();
+				product[cnt++] = new ConversationBook(explainProd, productor, price, isbn, maker, bookName, language);
+				product[cnt++] = new CompactDisc(explainProd, productor, price, albumTitle, singerNameInfo);
+				for (int i = 0; i < cnt; i++) {
+					product[i].print();
+					System.out.println();
+				}
 				break;
 			default:
 				break;
 			}
+		}while(choice == 1 || choice == 2);
 
-			for (int i = 0; i < product.length; i++) {
-				product[i] = new ConversationBook(explainProd, productor, price, explainProd, productor, price, explainProd);
-				product[i].print();
-			}
+		sc.close();
 	}
 }

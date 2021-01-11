@@ -9,4 +9,10 @@ public class CompactDisc extends Product{
 		this.albumTitle = albumTitle;
 		this.singerNameInfo = singerNameInfo;
 	}
+	
+	public void print() {
+		super.print();
+		System.out.println("Album title>>" + albumTitle);
+		System.out.println("Singer Name>>" + singerNameInfo);
+	}
 }

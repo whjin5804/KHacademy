@@ -1,7 +1,7 @@
 package com_Test13;
 
 public class Product {
-	private String identify;	//¾È¾¸
+	private String identify;	//ï¿½È¾ï¿½
 	private String explainProd;
 	private String productor;
 	private String price;
@@ -17,9 +17,9 @@ public class Product {
 	}
 	
 	public void print() {
-		System.out.println("»óÇ° ¼³¸í>>" + explainProd);
-		System.out.println("»ý»êÀÚ>>" + productor);
-		System.out.println("°¡°Ý>>" + price);
+		System.out.println("Product explain>>" + explainProd);
+		System.out.println("Productor>>" + productor);
+		System.out.println("price>>" + price);
 	}
 	
 	
