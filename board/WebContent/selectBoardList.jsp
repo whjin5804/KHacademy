@@ -20,7 +20,7 @@
 	</tr>
 	<tr>
 		<td>작성일</td>
-		<td><input type="date" name="date"></td>
+		<td><input type="date" name="date" value="${nowdate }"></td>
 	</tr>
 	<tr>
 		<td>내용</td>

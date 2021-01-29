@@ -174,7 +174,6 @@ public class StudentController extends HttpServlet {
 			
 			path = "selectStudentList.st";
 			
-			
 		}
 		
 		

@@ -40,8 +40,7 @@ tr, td{
 					<c:forEach items="${list }" var="board">
 						<tr>
 							<td>${board.number }</td>
-							<td><a
-								href="selectBoardDetail.bo?
+							<td><a href="selectBoardDetail.bo?
 							number=${board.number }&title=${board.title }&writer=${board.writer }&date=${board.date }&content=${board.content }">
 									${board.title }</a></td>
 							<td>${board.writer }</td>

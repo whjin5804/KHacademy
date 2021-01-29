@@ -5,13 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	alert('등록 성공');
-	location.href='boardList.bo';
-</script>
 </head>
 <body>
-<form action="boardList.bo" method="post">
-</form>
+
 </body>
 </html>

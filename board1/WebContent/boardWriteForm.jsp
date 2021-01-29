@@ -7,31 +7,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="updateBoard.bo" method="post">
-<input type="hidden" name="content" value="${content }">
+<form action="boardListForm.bo" method="post">
 <table>
 	<tr>
 		<td>제목</td>
-		<td><input type="text" name="title" value="${title }"></td>
+		<td><input type="text" name="title"></td>
 	</tr>
 	<tr>
 		<td>작성자</td>
-		<td><input type="text" name="writer" value="${writer }" readonly></td>
+		<td><input type="text" name="writer"></td>
 	</tr>
 	<tr>
 		<td>작성일</td>
-		<td><input type="date" name="date" value="${date }" readonly ></td>
+		<td><input type="date" name="date" value="${nowdate }"></td>
 	</tr>
 	<tr>
 		<td>내용</td>
 		<td>
 			<textarea rows="10px" cols="40px" name="content">
-			${content }
+			
 			</textarea>
 		</td>
 	</tr>
 </table>
-<input type="submit" value="수정">
+	<input type="submit" value="완성">
 </form>
 </body>
 </html>
