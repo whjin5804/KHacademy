@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- BOARD 테이블에 대한 SQL문을 mapper태그 안에 작성 -->
+<mapper namespace="boardMapper">
+   <!-- 먼저 resultMap을 만들어 준다 -->
+   <!-- resultMap: 쿼리 조회 결과가 나온 데이터를 자바로 가져올 수 있도록 자바 클래스와 결과를 연결(매핑)시켜주는 작업 -->
+   <resultMap type="dto.BoardDTO" id="board">
+      <!-- column: 실제 테이블의 컬럼명 -->
+      <!-- property: 해당 컬럼의 값을 저장할 수 있는 변수 -->
+      <result column="BOARD_NUM"       property="boardNum"/>
+      <result column="TITLE"           property="title"/>
+      <result column="CONTENT"         property="content"/>
+      <result column="MEMBER_ID"       property="memberId"/>
+      <result column="CREATE_DATE"     property="createDate"/>
+      <result column="READ_CNT"        property="readCnt"/>
+      <result column="FILE_NAME"       property="fileName"/>
+   </resultMap>
+   
+   <!-- 실행할 쿼리문이 select면 select 태그에 쿼리 작성 --> 
+   <select id="selectBoardList" resultMap="board">
+         SELECT BOARD_NUM
+            , TITLE
+            , MEMBER_ID
+            , TO_CHAR(CREATE_DATE, 'YYYY-MM-DD') AS CREATE_DATE
+            , READ_CNT
+         FROM BOARD
+         ORDER BY BOARD_NUM DESC
+   </select>
+   
+   
+<!-- <select id="selectBoardDetail" resultMap="board">
+   		SELECT BOARD_NUM
+   			, TITLE
+   			, CONTENT  
+   			, MEMBER_ID
+   			, TO_CHAR(CREATE_DATE, 'YYYY-MM-DD') AS CREATE_DATE
+   			, READ_CNT
+   			, FILE_NAME
+   		FROM BOARD
+   		WHERE BOARD_NUM = #{boardNum}
+   </select>  -->
+   
+	<select id="selectBoardDetail" resultMap="board">
+      SELECT BOARD_NUM
+         , TITLE
+         , CONTENT
+         , MEMBER_ID
+         , TO_CHAR(CREATE_DATE, 'YYYY-MM-DD') AS CREATE_DATE
+         , READ_CNT
+         , FILE_NAME
+      FROM BOARD
+      WHERE BOARD_NUM = #{boardNum}
+   </select>
+   
+	<delete id="deleteBoard">
+		DELETE BOARD
+		WHERE BOARD_NUM = #{boardNum}
+	</delete>
+   
+   
+   
+   
+   
+   
+   
+</mapper>
