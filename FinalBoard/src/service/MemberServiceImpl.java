@@ -17,6 +17,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int insertJoin(MemberDTO member) {
 		sqlSession.insert("insertJoin", member);
+		sqlSession.commit();
 		return 0;
 	}
 	@Override

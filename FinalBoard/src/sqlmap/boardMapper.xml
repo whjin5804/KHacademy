@@ -14,15 +14,36 @@
 	</resultMap>
 	
 	<!-- 쿼리작성 -->
+	<!-- #을붙이면 ''가 붙기때문에 문자열 처리,
+	데이터 값을 받아오는 경우에는 ''가 안붙는 $를 써준다. -->
 	<select id="selectBoardList" resultMap="board">
-		SELECT BOARD_NUM
-				, TITLE
-				, MEMBER_ID
-				, TO_CHAR(CREATE_DATE, 'YYYY-MM-DD') AS CREATE_DATE
-				, READ_CNT
-				, FILE_NAME
-			FROM BOARD
-			ORDER BY BOARD_NUM DESC
+			SELECT BOARD_NUM
+					, TITLE
+					, MEMBER_ID
+					, CREATE_DATE
+					, READ_CNT
+					, FILE_NAME
+					, ROW_NUM
+			FROM
+			(
+				SELECT BOARD_NUM
+					, TITLE
+					, MEMBER_ID
+					, TO_CHAR(CREATE_DATE, 'YYYY-MM-DD') AS CREATE_DATE
+					, READ_CNT
+					, FILE_NAME
+					, ROWNUM AS ROW_NUM
+				FROM BOARD
+				<if test="searchValue != null and !searchValue.equals('')">
+				WHERE ${searchKeyword} LIKE '%'||#{searchValue}||'%'
+				</if>
+				ORDER BY BOARD_NUM DESC
+			)
+			WHERE ROW_NUM &gt;= #{startNum} AND ROW_NUM &lt;= #{endNum}
+			<!--
+			 < : &lt;
+			 > : &gt; 
+			 -->
 	</select>
 	
 	<select id="selectBoardDetail" resultMap="board">
@@ -55,15 +76,32 @@
          , TITLE
          , CONTENT
          , MEMBER_ID
+         , FILE_NAME
       ) VALUES (
          (SELECT NVL(MAX(BOARD_NUM) + 1, 1) FROM BOARD)
          , #{title}
          , #{content}
-         , '원호'
+         , #{memberId}
+         , #{fileName}
       )
    </insert>
+   
+   <update id="updateReadCnt">
+   	UPDATE BOARD
+   	SET
+   	READ_CNT = READ_CNT + 1
+   	WHERE BOARD_NUM = #{bordNum}
+   </update>
 	
-	
+	<!-- select태그에는 resultMap이나 resultType이 반드시
+		 들어가야한다. -->
+ 	 <!-- resultMap : 조회한 결과를 클래스형 자료형에 담아서 갈 떄 사용 -->
+	<!-- resultType : 조회한 결과를 int나 String으로 담아서 받을 때 사용 -->
+	<select id="selectBoardCnt" resultType="int">
+		SELECT COUNT(BOARD_NUM)
+		FROM BOARD
+		<!-- ORDER BY BOARD_NUM DESC -->
+	</select>
 	
 	
 	

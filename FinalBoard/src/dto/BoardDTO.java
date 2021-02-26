@@ -19,6 +19,38 @@ public class BoardDTO {
 	private int readCnt;
 	private String fileName;
 	
+	//검색기능을 위한 변수
+	private String searchKeyword;
+	private String searchValue;
+	
+	//페이징처리를 위한 변수
+	private int startNum;
+	private int endNum;
+
+	public int getStartNum() {
+		return startNum;
+	}
+	public void setStartNum(int startNum) {
+		this.startNum = startNum;
+	}
+	public int getEndNum() {
+		return endNum;
+	}
+	public void setEndNum(int endNum) {
+		this.endNum = endNum;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+	public String getSearchValue() {
+		return searchValue;
+	}
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
+	}
 	public int getBoardNum() {
 		return boardNum;
 	}

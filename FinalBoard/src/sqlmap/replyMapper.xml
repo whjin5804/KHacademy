@@ -13,11 +13,35 @@
 	
 	<!-- 쿼리작성 -->
 	<insert id="insertReply">
-	INSERT INTO REPLY
-	VALUES( (SELECT NVL(MAX(REPLY_NUM) + 1, 1) FROM REPLY)
+	INSERT INTO REPLY(
+                        REPLY_NUM
+                        , CONTENT
+                        , CREATE_DATE
+                        , MEMBER_ID
+                        , BOARD_NUM)
+            VALUES(
+            (SELECT NVL(MAX(REPLY_NUM) + 1, 1) FROM REPLY)
 			, #{content}
-			, TO_CHAR(SYSDATE, 'YYYY-MM-DD')
+			, SYSDATE
 			, #{memberId}
-			, 0)
+			, #{boardNum}
+			)
 	</insert>
+	
+	<select id="selectReplyAll" resultMap="reply">
+		SELECT 	REPLY_NUM
+				, CONTENT
+				, TO_CHAR(SYSDATE, 'YYYY.MM.DD. HH24:MI') AS CREATE_DATE
+				, MEMBER_ID
+				, BOARD_NUM
+		FROM REPLY
+		WHERE BOARD_NUM = #{boardNum}
+		ORDER BY REPLY_NUM DESC
+	</select>
+	
+	<delete id="deleteReply">
+		DELETE REPLY
+		WHERE BOARD_NUM = #{boardNum}
+	</delete>	
+	
 </mapper>

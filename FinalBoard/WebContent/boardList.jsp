@@ -99,7 +99,14 @@ button.icon:focus{
   }
 button.icon:active{
      opacity: 0.8; 
-  } 
+  }
+  
+#pagingDiv{
+	margin-top: 15px;
+	text-align: center;
+}
+
+
 </style>
 
 </head>
@@ -116,17 +123,19 @@ button.icon:active{
 		</c:if>
 	</div>
 	
+ <form action="boardList.bo" method="post">
 	<div id="searchDiv">
-		<select>
-			<option>제목</option>
-			<option>내용</option>
-			<option>작성자</option>
+		<select name="searchKeyword">
+			<option value="TITLE">제목</option>
+			<option value="CONTENT">내용</option>
+			<option value="MEMBER_ID">작성자</option>
 		</select>
  <div class="iconInput">
-<input type="search" id="search" placeholder="Search..." />
-<button class="icon" type="button"><i class="fa fa-search"></i></button>
+<input type="search" id="search" placeholder="Search..." name="searchValue" />
+<button class="icon" type="submit"><i class="fa fa-search"></i></button>
 </div> 
 	</div>
+ </form>
 	
 	<div id="tableDiv">
 		<table>
@@ -153,13 +162,29 @@ button.icon:active{
 					<td align="center">${board.memberId }</td>
 					<td align="center">${board.createDate }</td>
 					<td align="center">${board.readCnt }</td>
-					<td></td>
+					<td>${board.fileName }</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
 	
-	<div id="pagingDiv"></div>
+	<div id="pagingDiv">
+		<c:if test="${pageInfo.prev }">
+			<a href="boardList.bo?nowPage=${pageInfo.beginPage - 1 }">
+			prev
+			</a>
+		</c:if>
+		<c:forEach begin="${pageInfo.beginPage }" end="${pageInfo.endPage }" step="1" var="index">
+			<a href="boardList.bo?nowPage=${index }">
+			<span <c:if test="${pageInfo.nowPage eq index}">style="color: red; font-weight:bold;"</c:if>>${index }</span>
+			</a>
+		</c:forEach>
+		<c:if test="${pageInfo.next }">
+			<a href="boardList.bo?nowPage=${pageInfo.endPage +1 }">
+			next
+			</a>
+		</c:if>
+	</div>
 	<div id="btnDiv">
 		<input type="button" value="글쓰기" onclick="location.href='boardWriteForm.bo';">
 	</div>

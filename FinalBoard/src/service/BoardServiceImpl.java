@@ -16,10 +16,9 @@ public class BoardServiceImpl implements BoardService {
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	//인터페이스에서 정의된 기능 구현
 	
-	
 	@Override
-	public List<BoardDTO> selectBoardList() {
-		List<BoardDTO> list =  sqlSession.selectList("boardMapper.selectBoardList");
+	public List<BoardDTO> selectBoardList(BoardDTO board) {
+		List<BoardDTO> list = sqlSession.selectList("boardMapper.selectBoardList", board);
 		sqlSession.commit();
 		return list;
 	}//
@@ -35,8 +34,15 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void deleteBoard(int boardNum) {
-		sqlSession.delete("boardMapper.deleteBoard", boardNum);
-		sqlSession.commit();
+		try {
+			sqlSession.delete("replyMapper.deleteReply", boardNum);
+			sqlSession.delete("boardMapper.deleteBoard", boardNum);
+			sqlSession.commit();
+		} catch (Exception e) {
+			sqlSession.rollback();
+			e.printStackTrace();
+		}
+		
 	}
 
 
@@ -50,10 +56,23 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int insertBoard(BoardDTO board) {
 		int result = sqlSession.insert("boardMapper.insertBoard", board);
-		System.out.println(board.getTitle() + "제목");
-		System.out.println(board.getContent() + "내용");
 		sqlSession.commit();
 		return result;
+	}
+
+
+	@Override
+	public void updateReadCnt(int boardNum) {
+		sqlSession.update("updateReadCnt", boardNum);
+		sqlSession.commit();
+	}
+
+
+	@Override
+	public int selectBoardCnt() {
+		int totalCnt = sqlSession.selectOne("selectBoardCnt");
+		sqlSession.commit();
+		return totalCnt;
 	}
 
 	

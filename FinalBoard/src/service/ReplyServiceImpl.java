@@ -2,10 +2,12 @@ package service;
 
 
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-
+import dto.BoardDTO;
 import dto.ReplyDTO;
 import sqlmap.SqlSessionManager;
 
@@ -18,22 +20,25 @@ public class ReplyServiceImpl implements ReplySerivce {
 	
 	@Override
 	public int insertReply(ReplyDTO replyDTO) {
-		sqlSession.insert("insertReply", replyDTO);
-		return 0;
+		int result = sqlSession.insert("insertReply", replyDTO);
+		sqlSession.commit();
+		return result;
 	}
+
+	@Override
+	public List<ReplyDTO> selectReplyAll(int boardNum) {
+		List<ReplyDTO> list = sqlSession.selectList("selectReplyAll", boardNum);
+		sqlSession.commit();
+		return list;
+	}
+
+	@Override
+	public void deleteReply(int boardNum) {
+		sqlSession.delete("deleteReply", boardNum);
+		
+	}
+
+	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

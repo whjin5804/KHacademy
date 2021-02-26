@@ -14,6 +14,12 @@ table {
 	border-collapse: collapse;
 	margin-top: 15px;
 }
+
+tr,td{
+	border: 1px solid black;
+	border-collapse: collapse;
+
+}
 #btnDivv{
 	margin : 0 auto;
 	text-align: center;
@@ -21,7 +27,7 @@ table {
 </style>
 </head>
 <body>
-<form action="boardWrite.bo" method="post">
+<form action="boardWrite.bo" method="post" enctype="multipart/form-data">
 <div style="margin-top: 10px;"></div>
 <table>
 	<tr>
@@ -31,6 +37,10 @@ table {
 	<tr>
 		<td>내용</td>
 		<td><textarea rows="15" cols="66" name="content"></textarea></td>
+	</tr>
+	<tr>
+		<td>첨부파일</td>
+		<td><input type="file" name="file" ></td>
 	</tr>
 </table>
 <div id="btnDivv">

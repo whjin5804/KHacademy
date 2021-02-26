@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,15 +50,19 @@ public class ReplyController extends HttpServlet {
 		//index.jsp, boardWrite.bo  > 리스트
 		if(command.equals("/replyBoard.re")) {
 			HttpSession session = request.getSession();
-			String reply = request.getParameter("reply");
+			String content = request.getParameter("content");
+			int boardNum = Integer.parseInt(request.getParameter("boardNum"));
 			ReplyDTO replyDTO = new ReplyDTO();
-			replyDTO.setContent(reply);
+			replyDTO.setContent(content);
 			replyDTO.setMemberId((String)session.getAttribute("memberId"));
+			replyDTO.setBoardNum(boardNum);
+			int result = replySerivce.insertReply(replyDTO);
+//			System.out.println("content : " + content);
+//			System.out.println("memberId" + replyDTO.getMemberId());
+//			System.out.println("boardNum : " + boardNum);
 			
-			replySerivce.insertReply(replyDTO);
-			
-			
-			path = "boardDetail.bo";
+			isRedirect = true;
+			path = "boardDetail.bo?boardNum=" + boardNum;
 		}
 		
 		
@@ -65,7 +71,6 @@ public class ReplyController extends HttpServlet {
 			response.sendRedirect(path);
 		}else {
 			dispatcher.forward(request, response);
-			
 		}
 	}
 	
